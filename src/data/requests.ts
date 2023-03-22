@@ -1,5 +1,4 @@
 import { pipe } from "fp-ts/function";
-import { Option, some } from "fp-ts/lib/Option";
 import { map as TEMap, type TaskEither, tryCatch } from "fp-ts/TaskEither";
 import { BaseApi } from "~/api/baseApi";
 import { SnowplowResponse, SnowplowsResponse } from "./types";
@@ -10,15 +9,16 @@ export const createGetAllRequest = (
   pipe(
     tryCatch(
       () => api.getAll(),
-      (error) => error instanceof Error ? error : new Error(`Error while getting all: ${error}`)
+      (error) =>
+        error instanceof Error
+          ? error
+          : new Error(`Error while getting all: ${error}`)
     ),
     TEMap((response) => response.data)
   );
 
 export const createGetOneRequest =
-  (
-    api: BaseApi
-  ): ((id: string) => TaskEither<Error, Option<SnowplowResponse>>) =>
+  (api: BaseApi): ((id: string) => TaskEither<Error, SnowplowResponse>) =>
   (id: string) =>
     pipe(
       tryCatch(
@@ -29,7 +29,10 @@ export const createGetOneRequest =
               temporal_resolution: 15,
             })
             .findById(id),
-        (error) => error instanceof Error ? error : new Error(`Error while getting ${id}: ${error}`)
+        (error) =>
+          error instanceof Error
+            ? error
+            : new Error(`Error while getting ${id}: ${error}`)
       ),
-      TEMap((response) => some(response.data))
+      TEMap((response) => response.data)
     );

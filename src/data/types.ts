@@ -1,5 +1,4 @@
 import { type Either } from "fp-ts/lib/Either";
-import { type Option } from "fp-ts/lib/Option";
 import { type LatLngTuple } from "leaflet";
 
 export type PlowEvent =
@@ -30,4 +29,4 @@ export type HistoryPoint = {
 
 export type SnowplowsResponse = Either<Error, Snowplow[]>;
 
-export type SnowplowResponse = Either<Error, Option<Snowplow>>;
+export type SnowplowResponse = Either<Error, Snowplow>;

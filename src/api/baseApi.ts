@@ -3,7 +3,7 @@ import { type SnowplowRequest } from "./types";
 
 export class BaseApi {
   url: string;
-  params: {};
+  params: SnowplowRequest;
 
   constructor(url: string) {
     this.url = url;

@@ -15,7 +15,13 @@ import Data from "~/data";
 import { HistoryPoint, Snowplow, SnowplowResponse } from "~/data/types";
 import { getLatLngTuple, toMarker } from "~/data/utils";
 import { ZOOM_ON_SINGLE } from "~/constants";
-import { isSome, map as OMap, match, none, some, type Option } from "fp-ts/lib/Option";
+import {
+  isSome,
+  match,
+  none,
+  some,
+  type Option,
+} from "fp-ts/lib/Option";
 
 const SingleSnowplow: Component = () => {
   const { id } = useParams();
@@ -30,10 +36,10 @@ const SingleSnowplow: Component = () => {
         snowplow() as SnowplowResponse,
         bimap(
           () => <Navigate href="/error" />,
-          OMap((plow: Snowplow) => {
+          (plow: Snowplow) => {
             setMarker(some(toMarker(navigate)(plow)));
             setHistory(plow.location_history);
-          })
+          }
         )
       );
   });
@@ -46,12 +52,14 @@ const SingleSnowplow: Component = () => {
           marker(),
           match(
             () => <Navigate href="/not-found" />,
-            (mark) => <LeafletMap
-              center={getLatLngTuple(mark)}
-              markers={[mark]}
-              initialZoom={ZOOM_ON_SINGLE}
-              history={history()}
-            />
+            (mark) => (
+              <LeafletMap
+                center={getLatLngTuple(mark)}
+                markers={[mark]}
+                initialZoom={ZOOM_ON_SINGLE}
+                history={history()}
+              />
+            )
           )
         )}
       </Show>
