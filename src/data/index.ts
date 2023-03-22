@@ -2,13 +2,13 @@ import Api from "~/api";
 import { createGetAllRequest, createGetOneRequest } from "./requests";
 
 const requests = {
-  all: createGetAllRequest(Api.snowplowApi),
-  one: createGetOneRequest(Api.snowplowApi),
+  getAll: createGetAllRequest(Api.snowplowApi),
+  getOne: createGetOneRequest(Api.snowplowApi),
 };
 
 const Data = {
-  getAll: async () => await requests.all(),
-  getOne: async (id: string) => await requests.one(id)(),
+  getAll: async () => await requests.getAll(),
+  getOne: async (id: string) => await requests.getOne(id)(),
 };
 
 export default Data;

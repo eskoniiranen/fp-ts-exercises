@@ -8,7 +8,7 @@ import {
 import { Navigate, useNavigate } from "@solidjs/router";
 import { bimap } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
-import { type LatLngTuple, type Marker } from "leaflet";
+import { type Marker } from "leaflet";
 import Loading from "~/components/Loading";
 import { HELSINKI } from "~/constants";
 import Data from "~/data";
@@ -37,7 +37,7 @@ const Snowplows: Component = () => {
     <>
       <p>Valitse kartalta lumiaura tarkastellaksesi sen reittihistoriaa</p>
       <Show when={!snowplows.loading} fallback={<Loading />}>
-        <LeafletMap center={HELSINKI as LatLngTuple} markers={markers()} />
+        <LeafletMap center={HELSINKI} markers={markers()} />
       </Show>
     </>
   );

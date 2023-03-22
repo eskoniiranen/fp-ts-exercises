@@ -1,3 +1,5 @@
+import { LatLngTuple } from "leaflet";
+
 export const SNOWPLOW_URL = "https://dev.hel.fi/aura/v1/snowplow/";
 
 export const TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -11,7 +13,7 @@ export const MAX_ZOOM = 17;
 export const MIN_ZOOM = 9;
 export const ICON_SIZE = [48, 48];
 
-export const HELSINKI = [60.21, 24.9384];
+export const HELSINKI: LatLngTuple = [60.21, 24.9384];
 
 export const eventMap = {
   kv: "Kevyen liikenteen väylät",

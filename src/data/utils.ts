@@ -37,7 +37,7 @@ export const getPoints = (historyPoints: HistoryPoint[]) =>
     lng: historyPoint.coords[0],
   }));
 
-export const getLatLngTuple = (marker: Marker) => {
+export const getLatLngTuple = (marker: Marker): LatLngTuple => {
   const latLng = marker.getLatLng();
-  return [latLng.lat, latLng.lng] as LatLngTuple;
+  return [latLng.lat, latLng.lng];
 };
