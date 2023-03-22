@@ -5,7 +5,5 @@ export interface MapProps {
   center: LatLngTuple;
   initialZoom?: number;
   markers: Marker[];
-  maxZoom?: number;
-  minZoom?: number;
   history?: HistoryPoint[];
 }

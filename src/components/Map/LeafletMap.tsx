@@ -6,19 +6,13 @@ import { type MapProps } from "./types";
 import { getPoints } from "../../data/utils";
 
 const LeafletMap: Component<MapProps> = (props) => {
-  const {
-    center,
-    initialZoom = INITIAL_ZOOM,
-    maxZoom = MAX_ZOOM,
-    minZoom = MIN_ZOOM
-  } = props;
 
   onMount(() => {
-    const map: Map = leafletMap(MAP_ELEMENT_ID).setView(center, initialZoom);
+    const map: Map = leafletMap(MAP_ELEMENT_ID).setView(props.center, props.initialZoom || INITIAL_ZOOM);
 
     tileLayer(TILES, {
-      maxZoom,
-      minZoom,
+      maxZoom: MAX_ZOOM,
+      minZoom: MIN_ZOOM,
       attribution: ATTRIBUTION
     }).addTo(map);
 
@@ -30,7 +24,7 @@ const LeafletMap: Component<MapProps> = (props) => {
 
 
   return (
-    <div id={MAP_ELEMENT_ID} style="height: 400px;"></div>
+    <div id={MAP_ELEMENT_ID} style={{"height":"400px"}}/>
   );
 };
 

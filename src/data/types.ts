@@ -1,5 +1,6 @@
 import { Either } from "fp-ts/lib/Either";
 import { Option } from "fp-ts/lib/Option";
+import { LatLngTuple } from "leaflet";
 
 export type Event =
   "kv" |
@@ -23,7 +24,7 @@ export type Snowplow = {
 
 export type HistoryPoint = {
   timestamp: string,
-  coords: number[],
+  coords: LatLngTuple,
   events: Event[]
 }
 

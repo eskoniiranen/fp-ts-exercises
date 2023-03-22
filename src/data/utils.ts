@@ -9,11 +9,11 @@ const tractorIcon: Icon = icon(<IconOptions>{
   iconSize: ICON_SIZE
 });
 
-const flipLatLngTuple = (tuple: LatLngTuple | number[]): LatLngTuple => [tuple[1], tuple[0]]
+const flipLatLngTuple = (tuple: LatLngTuple): LatLngTuple => [tuple[1], tuple[0]]
 
-const mapEventKeyToTranslation = (eventKey: Event ) => eventMap[eventKey];
+const mapEventKeyToTranslation = (eventKey: Event) => eventMap[eventKey];
 
-export const toMarker = (navigationCallback: Navigator) => (snowplow: Snowplow ): Marker => marker(
+export const toMarker = (navigationCallback: Navigator) => (snowplow: Snowplow): Marker => marker(
   flipLatLngTuple(snowplow.last_location.coords),
   {
     title: mapEventKeyToTranslation(snowplow.last_location.events[0]),
