@@ -46,7 +46,7 @@ const SingleSnowplow: Component = () => {
 
   return (
     <>
-      <p>Tarkastellaan lumiauraa {id}</p>
+      <p class="mb-6 text-lg">Tarkastellaan lumiauraa {id}</p>
       <Show when={!snowplow.loading && isSome(marker())} fallback={<Loading />}>
         {pipe(
           marker(),
@@ -63,7 +63,9 @@ const SingleSnowplow: Component = () => {
           )
         )}
       </Show>
-      <Link href="/">Palaa takaisin</Link>
+      <div class="my-6 text-xl">
+        <Link href="/">Palaa takaisin</Link>
+      </div>
     </>
   );
 };
