@@ -9,6 +9,7 @@ export const INITIAL_ZOOM = 11;
 export const ZOOM_ON_SINGLE = 13;
 export const MAX_ZOOM = 17;
 export const MIN_ZOOM = 9;
+export const ICON_SIZE = [48, 48];
 
 export const HELSINKI = [60.21, 24.9384];
 
