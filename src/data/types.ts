@@ -1,4 +1,5 @@
 import { Either } from "fp-ts/lib/Either";
+import { Option } from "fp-ts/lib/Option";
 
 export type Event =
   "kv" |
@@ -28,4 +29,4 @@ export type HistoryPoint = {
 
 export type SnowplowsResponse = Either<Error, Snowplow[]>
 
-export type SnowplowResponse = Either<Error, Snowplow>
+export type SnowplowResponse = Either<Error, Option<Snowplow>>

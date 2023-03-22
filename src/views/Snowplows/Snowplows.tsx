@@ -12,7 +12,7 @@ import LeafletMap from "../../components/Map/LeafletMap";
 
 const Snowplows: Component = () => {
   const [snowplows] = createResource(() => Data.getAll());
-  const [markers, setMarkers] = createSignal<Marker[]>([] as Marker[]);
+  const [markers, setMarkers] = createSignal<Marker[]>([]);
   const navigate = useNavigate();
 
   createEffect(() => {

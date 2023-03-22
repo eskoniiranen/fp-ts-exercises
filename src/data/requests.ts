@@ -1,21 +1,18 @@
-import { AxiosResponse } from "axios";
 import { pipe } from "fp-ts/function";
+import { fromNullable, Option } from "fp-ts/lib/Option";
 import { map, type TaskEither, tryCatch } from "fp-ts/TaskEither";
 import { BaseApi } from "../api/baseApi";
+import { SnowplowResponse, SnowplowsResponse } from "./types";
 
-export const createGetAllRequest = (api: BaseApi): TaskEither<Error, AxiosResponse> => pipe(
+export const createGetAllRequest = (api: BaseApi): TaskEither<Error, SnowplowsResponse> => pipe(
   tryCatch(
-    () => api.withParams({
-      history: 10,
-      temporal_resolution: 10
-    }).getAll(),
+    () => api.getAll(),
     (error) => new Error(`Error while getting all: ${error}`)
   ),
   map((response) => response.data)
 );
 
-// export const createGetOneRequest = (api: BaseApi): (id: string) => TaskEither<Error, AxiosResponse> => (id: string) => pipe(
-export const createGetOneRequest = (api: BaseApi) => (id: string) => pipe(
+export const createGetOneRequest = (api: BaseApi): (id: string) => TaskEither<Error, Option<SnowplowResponse>> => (id: string) => pipe(
   tryCatch(
     () => api.withParams({
       history: 500,
@@ -23,5 +20,5 @@ export const createGetOneRequest = (api: BaseApi) => (id: string) => pipe(
     }).findById(id),
     (error) => new Error(`Error while getting ${id}: ${error}`)
   ),
-  map((response) => response.data)
+  map((response) => fromNullable(response.data))
 );
