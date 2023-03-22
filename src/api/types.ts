@@ -3,4 +3,4 @@ export type SnowplowRequest = {
   since?: string;
   limit?: number;
   temporal_resolution?: number;
-}
+};

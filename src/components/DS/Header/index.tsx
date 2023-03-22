@@ -7,7 +7,7 @@ const Header: Component = (props) => {
     <>
       <input />
     </>
-  )
-}
+  );
+};
 
 export default Header;

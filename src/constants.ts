@@ -1,8 +1,8 @@
 export const SNOWPLOW_URL = "https://dev.hel.fi/aura/v1/snowplow/";
-export const REITTIGPS_URL = "todo";
 
-export const TILES = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-export const ATTRIBUTION = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+export const TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+export const ATTRIBUTION =
+  '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
 export const MAP_ELEMENT_ID = "map";
 export const INITIAL_ZOOM = 11;
@@ -25,5 +25,5 @@ export const eventMap = {
   ps: "Pölynsidonta",
   hn: "hiekannosto",
   hj: "harjaus",
-  pn: "Pinnoitus, liittyy kesähoitoreitteihin"
-}
+  pn: "Pinnoitus, liittyy kesähoitoreitteihin",
+};

@@ -7,7 +7,7 @@ const Input: Component = (props) => {
     <>
       <input />
     </>
-  )
-}
+  );
+};
 
 export default Input;

@@ -1,4 +1,10 @@
-import { Component, createEffect, createResource, createSignal, Show } from "solid-js";
+import {
+  Component,
+  createEffect,
+  createResource,
+  createSignal,
+  Show,
+} from "solid-js";
 import { Link, Navigate, useNavigate, useParams } from "@solidjs/router";
 import { bimap } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
@@ -16,21 +22,21 @@ const SingleSnowplow: Component = () => {
   const [snowplow] = createResource(() => Data.getOne(id));
   const [marker, setMarker] = createSignal<Marker | null>(null);
   const [history, setHistory] = createSignal<HistoryPoint[]>([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   createEffect(() => {
-    !snowplow.loading && pipe(
-      snowplow() as SnowplowResponse,
-      bimap(
-        () => <Navigate href="/error" />,
-        optionMap((plow: Snowplow) => {
-            setMarker(toMarker(navigate)(plow))
-            setHistory(plow.location_history as HistoryPoint[])
-        })
-      )
-    );
+    !snowplow.loading &&
+      pipe(
+        snowplow() as SnowplowResponse,
+        bimap(
+          () => <Navigate href="/error" />,
+          optionMap((plow: Snowplow) => {
+            setMarker(toMarker(navigate)(plow));
+            setHistory(plow.location_history as HistoryPoint[]);
+          })
+        )
+      );
   });
-
 
   return (
     <>
@@ -46,6 +52,6 @@ const SingleSnowplow: Component = () => {
       <Link href="/">Palaa takaisin</Link>
     </>
   );
-}
+};
 
 export default SingleSnowplow;

@@ -6,6 +6,6 @@ const NotFound: Component = () => {
       <p>Valitettavasti tällä id:llä ei löytynyt yhtäkään lumiauraa… 😢</p>
     </>
   );
-}
+};
 
 export default NotFound;

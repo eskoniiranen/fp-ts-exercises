@@ -1,4 +1,10 @@
-import { type Component, createEffect, createResource, createSignal, Show } from "solid-js";
+import {
+  type Component,
+  createEffect,
+  createResource,
+  createSignal,
+  Show,
+} from "solid-js";
 import { Navigate, useNavigate } from "@solidjs/router";
 import { bimap } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
@@ -16,23 +22,25 @@ const Snowplows: Component = () => {
   const navigate = useNavigate();
 
   createEffect(() => {
-    snowplows() && pipe(
-      snowplows() as SnowplowsResponse,
-      bimap(
-        () => <Navigate href="/error" />,
-        (snowplowData: Snowplow[]) => setMarkers(snowplowData.map(toMarker(navigate)))
-      )
-    );
+    snowplows() &&
+      pipe(
+        snowplows() as SnowplowsResponse,
+        bimap(
+          () => <Navigate href="/error" />,
+          (snowplowData: Snowplow[]) =>
+            setMarkers(snowplowData.map(toMarker(navigate)))
+        )
+      );
   });
 
   return (
     <>
       <p>Valitse kartalta lumiaura tarkastellaksesi sen reittihistoriaa</p>
-      <Show when={!snowplows.loading} fallback={<Loading />} >
+      <Show when={!snowplows.loading} fallback={<Loading />}>
         <LeafletMap center={HELSINKI as LatLngTuple} markers={markers()} />
       </Show>
     </>
   );
-}
+};
 
 export default Snowplows;

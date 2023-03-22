@@ -5,7 +5,7 @@ const Loading: Component = () => {
     <>
       <p>Loading…</p>
     </>
-  )
-}
+  );
+};
 
 export default Loading;

@@ -7,7 +7,7 @@ const Form: Component = (props) => {
     <>
       <input />
     </>
-  )
-}
+  );
+};
 
 export default Form;

@@ -14,24 +14,27 @@ export class BaseApi {
     this.params = params;
 
     return this;
-  }
+  };
 
   getAll = async (): AxiosPromise => {
     const response = await axios.get(this.url + this._joinParams(this.params));
     this.params = {};
 
     return response;
-  }
+  };
 
   findById = async (id: string): AxiosPromise => {
-    const response = await axios.get(this.url + id + this._joinParams(this.params));
+    const response = await axios.get(
+      this.url + id + this._joinParams(this.params)
+    );
     this.params = {};
 
     return response;
-  }
+  };
 
-  _joinParams = (params: SnowplowRequest) => "?" + Object
-    .entries(params)
-    .map(KVPair => KVPair.join("="))
-    .join("&");
+  _joinParams = (params: SnowplowRequest) =>
+    "?" +
+    Object.entries(params)
+      .map((KVPair) => KVPair.join("="))
+      .join("&");
 }
