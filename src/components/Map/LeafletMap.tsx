@@ -8,9 +8,9 @@ import {
   MAX_ZOOM,
   MIN_ZOOM,
   TILES,
-} from "../../constants";
+} from "~/constants";
 import { type MapProps } from "./types";
-import { getPoints } from "../../data/utils";
+import { getPoints } from "~/data/utils";
 
 const LeafletMap: Component<MapProps> = (props) => {
   onMount(() => {

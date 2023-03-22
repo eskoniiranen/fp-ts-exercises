@@ -1,4 +1,4 @@
-import { SNOWPLOW_URL } from "../constants";
+import { SNOWPLOW_URL } from "~/constants";
 import { BaseApi } from "./baseApi";
 
 const Api = {

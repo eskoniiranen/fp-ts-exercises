@@ -7,9 +7,9 @@ import {
   icon,
   type IconOptions,
 } from "leaflet";
-import { eventMap, ICON_SIZE } from "../constants";
+import { eventMap, ICON_SIZE } from "~/constants";
 import { type Snowplow, type PlowEvent, type HistoryPoint } from "./types";
-import tractor from "../assets/tractor.png";
+import tractor from "~/assets/tractor.png";
 
 const tractorIcon: Icon = icon(<IconOptions>{
   iconUrl: tractor,

@@ -1,7 +1,7 @@
 import { pipe } from "fp-ts/function";
 import { fromNullable, Option } from "fp-ts/lib/Option";
 import { map, type TaskEither, tryCatch } from "fp-ts/TaskEither";
-import { BaseApi } from "../api/baseApi";
+import { BaseApi } from "~/api/baseApi";
 import { SnowplowResponse, SnowplowsResponse } from "./types";
 
 export const createGetAllRequest = (

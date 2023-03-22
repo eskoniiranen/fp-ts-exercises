@@ -9,12 +9,12 @@ import { Navigate, useNavigate } from "@solidjs/router";
 import { bimap } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
 import { type LatLngTuple, type Marker } from "leaflet";
-import Loading from "../../components/Loading";
-import { HELSINKI } from "../../constants";
-import Data from "../../data";
-import { SnowplowsResponse, type Snowplow } from "../../data/types";
-import { toMarker } from "../../data/utils";
-import LeafletMap from "../../components/Map/LeafletMap";
+import Loading from "~/components/Loading";
+import { HELSINKI } from "~/constants";
+import Data from "~/data";
+import { type SnowplowsResponse, type Snowplow } from "~/data/types";
+import { toMarker } from "~/data/utils";
+import LeafletMap from "~/components/Map/LeafletMap";
 
 const Snowplows: Component = () => {
   const [snowplows] = createResource(() => Data.getAll());

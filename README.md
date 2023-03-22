@@ -32,3 +32,21 @@ Your app is ready to be deployed!
 ## Deployment
 
 You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+
+## Todo
+
+The list is long. And unprioritized. Project maintenance todo:
+
+- sensible styling
+- husky + lint-staged
+- LeafletMap would probably be nicer to use if markers and paths were its children
+
+Subdstance todo:
+
+- hide error handling implementation details from component level
+- hide effectful code from component level in general
+- introduce io-ts for handling incoming data
+- make inputs for query parameters
+- State handling, pref. immutable (optics?)
+- Reader monad for handling params etc
+- StateReaderTaskEither to combine both?
