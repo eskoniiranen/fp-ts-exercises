@@ -35,7 +35,7 @@ const Snowplows: Component = () => {
 
   return (
     <>
-      <p>Valitse kartalta lumiaura tarkastellaksesi sen reittihistoriaa</p>
+      <p class="mb-6 text-lg">Valitse kartalta lumiaura tarkastellaksesi sen reittihistoriaa</p>
       <Show when={!snowplows.loading} fallback={<Loading />}>
         <LeafletMap center={HELSINKI} markers={markers()} />
       </Show>
