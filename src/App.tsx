@@ -8,7 +8,7 @@ const App: Component = () => {
   return (
     <div class="min-h-screen flex bg-gradient-to-b from-indigo-200 to-blue-300">
       <div class="m-auto my-5 p-3 max-w-screen-md rounded border border-indigo-900 bg-white shadow-2xl">
-        <header class="mx-2 mt-7 mb-5">
+        <header class="mx-2 my-5">
           <Link href="/">
             <h1 class="text-5xl font-bold text-indigo-900 uppercase">Aurataanko sinun kotikatusi taas viimeisenä?</h1>
           </Link>

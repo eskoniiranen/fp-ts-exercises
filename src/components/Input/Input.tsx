@@ -6,9 +6,9 @@ const Input: Component<InputProps> = (props) => {
   return (
     <div class="mt-1 flex flex-column w-1/2">
       <label>
-        <span class="">
+        <div class="mb-1 text-indigo-900">
           {props.label}:
-        </span>
+        </div>
         <input
           class={`p-1 rounded border border-black ${props.class}`}
           type="number"
