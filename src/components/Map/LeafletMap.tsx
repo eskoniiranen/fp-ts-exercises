@@ -30,7 +30,11 @@ const LeafletMap: Component<MapProps> = (props) => {
     if (props.history) polyline(getPoints(props.history)).addTo(map);
   });
 
-  return (<div class="h-96" id={MAP_ELEMENT_ID} />);
+  return (
+    <div class="border rounded border-indigo-900 overflow-hidden">
+      <div class="h-96" id={MAP_ELEMENT_ID} />
+    </div>
+  );
 };
 
 export default LeafletMap;
