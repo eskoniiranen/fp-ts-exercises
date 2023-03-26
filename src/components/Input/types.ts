@@ -1,7 +1,7 @@
 export interface InputProps {
   id: string;
   label: string;
-  onChange: any;
+  onInput: any;
   class?: string
   placeholder?: string;
 }

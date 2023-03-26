@@ -13,8 +13,9 @@ const Input: Component<InputProps> = (props) => {
           class={`p-1 rounded border border-black ${props.class}`}
           type="number"
           id={props.id}
-          onChange={(e) => props.onChange(e)}
+          onInput={(e) => props.onInput(e)}
           placeholder={props.placeholder}
+          min={0}
         />
       </label>
     </div>

@@ -5,7 +5,7 @@ import {
   createSignal,
   Show,
 } from "solid-js";
-import { Navigate, useNavigate, useParams } from "@solidjs/router";
+import { useNavigate, useParams } from "@solidjs/router";
 import { bimap } from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
 import { Marker } from "leaflet";
@@ -14,7 +14,6 @@ import { HistoryPoint, Snowplow, SnowplowResponse } from "~/data/types";
 import { getLatLngTuple, toMarker } from "~/data/utils";
 import { ZOOM_ON_SINGLE } from "~/constants";
 import {
-  isSome,
   match,
   none,
   some,
@@ -44,7 +43,7 @@ const SingleSnowplow: Component = () => {
       pipe(
         snowplow() as SnowplowResponse,
         bimap(
-          () => <Navigate href="/error" />,
+          () => navigate("/error"),
           (plow: Snowplow) => {
             setMarker(some(toMarker(navigate)(plow)));
             setHistory(plow.location_history);
@@ -56,7 +55,7 @@ const SingleSnowplow: Component = () => {
   return (
     <>
       <p class="mb-6 text-lg">Tarkastellaan lumiauraa {id}</p>
-      <Show when={!snowplow.loading && isSome(marker())} fallback={<Loading />}>
+      <Show when={!snowplow.loading} fallback={<Loading />}>
         {pipe(
           marker(),
           match(
@@ -71,9 +70,9 @@ const SingleSnowplow: Component = () => {
                 />
                 <div class="my-5 max-w-screen-md">
                   <form class="flex">
-                    <Input onChange={handleInputChange} label="Datapisteiden määrä" id="history" placeholder="Lukumäärä" />
-                    <Input onChange={handleInputChange} label="Aktiivisuusaikaväli" id="since" placeholder="Päiviä" />
-                    <Input onChange={handleInputChange} label="Ajallinen resoluutio" id="temporal_resolution" placeholder="Sekunteja" />
+                    <Input onInput={handleInputChange} label="Datapisteiden määrä" id="history" placeholder="Lukumäärä" />
+                    <Input onInput={handleInputChange} label="Aktiivisuusaikaväli" id="since" placeholder="Päiviä" />
+                    <Input onInput={handleInputChange} label="Ajallinen resoluutio" id="temporal_resolution" placeholder="Sekunteja" />
                   </form>
                 </div>
               </div>
